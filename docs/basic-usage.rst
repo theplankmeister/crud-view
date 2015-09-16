@@ -380,6 +380,9 @@ specify those association that should not be added to ``contain()``:
       $action $this->Crud->action();
       // Only fetch association info for Categories and Tags
       $action->config('scaffold.relations_blacklist', ['Authors']);
+      // Only pre-populate the categories relation field
+      $this->Crud->listener('relatedModels')->relatedModels(['Categories']);
+     
       return $this->Crud->execute();
     }
 
